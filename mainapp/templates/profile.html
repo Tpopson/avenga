@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block title %} User Profile {% endblock title %}
+
+{% block header %} {% include 'header.html' %}{% endblock header %}
+
+{% block content %}
+
+  <!-- content section begins -->
+  <div class="content">
+    <!-- content4  -->
+    <div class="profile">
+      <div class="container">
+        <h3 class="title">profile details</h3>
+        <div class="row justify-content-center gy-3">
+          <div class="col-9 col-sm-9 col-md-4 col-lg-3 advert">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-10 mb-4">
+                <div class="card newimg">
+                  <a href="#"><img src="{{profile.profile_img.url}}" class="card-img-top"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-9 col-sm-9 col-md-5 col-lg-5">
+            <div class="card main">
+              <!-- <a href="#"><img src="{{profile.profile_img.url}}" class="card-img-top"></a> -->
+              <div class="card-body">
+                <div class="address">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">first name</label>
+                      <input type="text" value="{{profile.first_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">last name</label>
+                      <input type="text" value="{{profile.last_name|title}}" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">email address</label>
+                      <input type="email" value="{{profile.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">phone number</label>
+                      <input type="text" value="{{profile.phone}}" class="form-control" id="exampleInputText1">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">address</label>
+                      <input type="text" value="{{profile.address}}" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">city</label>
+                      <input type="text" value="{{profile.city}}" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputText1" class="form-label">state</label>
+                      <input type="text" value="{{profile.state}}" class="form-control" id="exampleInputText1" aria-describedby="textHelp">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="col-9 col-sm-9 col-md-3 col-lg-3 advert">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-10 mb-4">
+                <div class="card newcard">
+                  <div class="card-body">
+                    <p class="card-text"><a href="{% url 'index' %}">home</a></p>
+                    <p class="card-text"><a href="#">cart</a></p>
+                    <p class="card-text"><a href="{% url 'profile' %}">profile</a></p> 
+                    <p class="card-text"><a href="{% url 'profile_update' %}">profile update</a></p>
+                    <p class="card-text"><a href="{% url 'profile_password' %}">password update</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+    <!-- content4  done -->
+    <!-- content5 -->
+    {% include 'brands.html' %}
+    <!-- content5 done -->
+  </div>
+  <!-- content section ends -->
+{% endblock content %}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}

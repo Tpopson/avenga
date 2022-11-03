@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Details {% endblock title %}
+
+{% block header %} {% include 'header.html' %}{% endblock header %}
+
+{% block hero %} {% include 'pro-hero.html' %}{% endblock hero %}
+
+{% block content %}
+<!-- content section begins -->
+<div class="content">
+  <!-- content4  -->
+  <div class="details">
+    <div class="container">
+      <h3 class="title">product Details</h3>
+      <div class="row justify-content-center gy-5">
+        <div class="col-2 col-sm-2 col-md-2 col-lg-3 advert d-none d-lg-block">
+          <div class="row">
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model4.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model5.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model2.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10">
+              <div class="card">
+                <a href="#"><img src="/img/model3.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-9 col-sm-9 col-md-7 col-lg-5">
+          <div class="card">
+            <a href="#"><img src="{{details.p_img.url}}" class="card-img-top"></a>
+            <div class="card-body">
+              <h5 class="card-title">category: {{details.category.name|title}}</h5>
+              <p class="card-text">product: {{details.p_name|title}}</p>
+              <p class="card-text">price: ${{details.p_price}}</p>
+              <p class="card-text">description: {{details.p_des}}</p>
+              <form action="{% url 'itemtocart' %}" method="POST"> 
+              {% csrf_token %} 
+                <input type="hidden" name="productid" value="{{details.id}}">
+                <label>Qty: <input name="quantity" type="number" value="1" min="{{details.p_min}}" max="{{details.p_max}}" class="py-1 px-2"></label>
+                <button type="submit" class="btn my-2">add to cart</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-9 col-sm-9 col-md-5 col-lg-3 advert">
+          <div class="row justify-content-center">
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model4.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model5.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10 mb-4">
+              <div class="card">
+                <a href="#"><img src="/img/model2.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-10 col-lg-10">
+              <div class="card">
+                <a href="#"><img src="/img/model3.jpg" class="card-img-top"></a>
+                <div class="card-body">
+                  <p class="card-text"><a href="/products.html">marykay</a></p>
+                  <p class="card-text">price: $10</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+      </div>
+    </div>
+  </div>
+  <!-- content4  done -->
+  <!-- content5 -->
+  {% include 'brands.html' %}
+  <!-- content5 done -->
+</div>
+<!-- content section ends -->
+{% endblock content %}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}

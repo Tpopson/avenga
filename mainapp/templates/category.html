@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Single Category {% endblock title %}
+
+{% block header %} {% include 'header.html' %}{% endblock header %}
+
+{% block hero %} {% include 'pro-hero.html' %}{% endblock hero %}
+
+{% block content %}
+ 
+ <!-- content section begins -->
+ <div class="content">
+  <!-- content4  -->
+  <div class="category">
+    <div class="container">
+      <h3 class="title">single category</h3>
+      <div class="row justify-content-center gy-5">
+        
+        {% for item in single_category %}
+          <div class="col-9 col-sm-5 col-md-5 col-lg-3">
+            <div class="card">
+              <a href="{% url 'details' item.id item.slug %}"><img src="{{item.p_img.url}}" class="card-img-top"></a>
+              <div class="card-body">
+                <h5 class="card-title">category: {{item.category.name}}</h5>
+                <p class="card-text"><a href="{% url 'details' item.id item.slug %}">product: {{item.p_name}}</a></p>
+                <p class="card-text">price: ${{item.p_price}}</p>
+                <form action="{% url 'itemtocart' %}" method="POST"> 
+                  {% csrf_token %} 
+                    <input type="hidden" name="productid" value="{{item.id}}">
+                    <label><input name="quantity" type="hidden" value="1" min="{{item.p_min}}" max="{{item.p_max}}" class="py-1 px-2"></label>
+                    <button type="submit" class="btn my-2">add to cart</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--  -->  
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- content4  done -->
+  <!-- content5 -->
+  {% include 'brands.html' %}
+   <!-- content5 done -->
+</div>
+<!-- content section ends -->
+{% endblock content %}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}

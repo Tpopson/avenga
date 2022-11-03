@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %} All Categories {% endblock title %}
+
+{% block header %} {% include 'header.html' %}{% endblock header %}
+
+{% block hero %} {% include 'pro-hero.html' %}{% endblock hero %}
+
+{% block content %}
+ <!-- content section begins -->
+ <div class="content">
+  <!-- content4   -->
+  <div class="categories">
+    <div class="container">
+      <h3 class="title">all categories</h3>
+      <div class="row justify-content-center gy-5">
+        {% if categories %}
+          {% for item in categories %}
+            <div class="col-9 col-sm-5 col-md-5 col-lg-3">
+              <div class="card"> 
+                <a href="{% url 'category' item.id item.slug %}"><img src="{{item.img.url}}" class="card-img-top"></a>
+                <div class="card-body">
+                  <a href="{% url 'category' item.id item.slug %}"><h5 class="card-title">{{item.name|title}}</h5></a>
+                </div>
+              </div>
+            </div>
+            <!--  -->
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- content4  done -->
+  <!-- content5 -->
+    {% include 'brands.html' %}
+   <!-- content5 done -->
+</div>
+<!-- content section ends -->
+
+{% endblock content %}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}

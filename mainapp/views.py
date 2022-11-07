@@ -18,10 +18,10 @@ from account.forms import SignupForm, ProfileForm, PasswordForm
 
 
 def index(request):
-    categories = Category.objects.all().order_by('-id')[:4]
+    categorys = Category.objects.all().order_by('-id')[:4]
 
     context = {
-        'categories':categories
+        'categorys':categorys
     }
     return render(request, 'index.html', context)
 
@@ -299,7 +299,7 @@ def pay(request):
     if request.method == 'POST':
         api_key = 'sk_test_0c3bb25f14513ee95dcbe057e8b007f8b8480aa1'
         curl = 'https://api.paystack.co/transaction/initialize'
-        cburl = 'http://34.247.71.104/callback'
+        cburl = 'http://34.240.124.29/callback'
         # cburl = 'http://localhost:8000/callback'
         ref = str(uuid.uuid4())
         amount = float(request.POST['total']) * 100

@@ -1,6 +1,5 @@
-from dataclasses import field
 from django.contrib.auth.models import User 
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, PasswordResetForm
 from django import forms 
 from account.models import Profile
 
@@ -30,6 +29,17 @@ class PasswordForm(PasswordChangeForm):
 
     
 
+# class RestPasswordForm(PasswordResetForm):
+#     email = forms.EmailField(max_length=50, widget=forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Enter your email address.'}))
+    
+#     class Meta:
+#         model = User 
+#         fields = ('email',)
+
+
+#     def __init__(self,*args, **kwargs):
+#         super(RestPasswordForm, self).__init__(*args, **kwargs)
+#         self.fields['email'].widget.attrs['class'] = 'form-control'
 
 
 

@@ -1,4 +1,3 @@
-from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 from mainapp.models import Product
@@ -10,7 +9,8 @@ class Shopcart(models.Model):
     product = models.ForeignKey(Product, on_delete= models.CASCADE)
     price = models.IntegerField()
     quantity = models.IntegerField()
-    amount = models.FloatField(default=1.0)
+    item_carted = models.IntegerField(default=1)
+    amount = models.FloatField()
     cart_no = models.CharField(max_length = 50)
     paid = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
@@ -56,7 +56,7 @@ class Payment(models.Model):
 
 
 class Shipping(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)

@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xyal*tdu(kal)+cg+p-cwy_u(mk#i2kh)$0%@m&a*!yt)o!#73'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = False
 
-ALLOWED_HOSTS = ['34.240.124.29']
+ALLOWED_HOSTS = ['34.244.55.237']
 
 
 # Application definition
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'mainapp.context_processor.catedropdown',
+                'mainapp.context_processor.itemcount',
             ],
         },
     },
@@ -83,6 +84,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'cosmeticsdb',
+#         'USER': 'cosmeticsadmin',
+#         'PASSWORD': 'admin1234',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 
 # Password validation
@@ -126,6 +139,17 @@ STATICFILES_DIRS = [BASE_DIR/ 'mainapp/static']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/ 'media'
+
+
+
+# email settings 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'tpro1216@gmail.com'
+EMAIL_HOST_PASSWORD = 'tzdthqdqrwkyxikl'
+EMAIL_USE_TLS = True
+# email settings end 
 
 
 # Default primary key field type

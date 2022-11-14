@@ -13,3 +13,8 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id','category','p_name','slug', 'p_img', 'p_price','p_des','p_min','p_max')
     prepopulated_fields = {'slug': ('p_name',)}
+
+
+
+admin.site.site_header = 'Avengers Cosmetics'
+admin.site.index_title = 'Avengers Cosmetics Admin'

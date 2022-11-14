@@ -4,9 +4,9 @@ venv
 *.pyc
 __pycache__/
 local_settings.py
-db.sqlite3
-db.sqlite3-journal
-media
+# db.sqlite3
+# db.sqlite3-journal
+# media
 ssh -i "avenging.pem" ubuntu@ec2-54-194-152-16.eu-west-1.compute.amazonaws.comv 
 
 
